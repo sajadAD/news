@@ -1,0 +1,6 @@
+.navbar_header{
+    background-image: url('../../../Assets/images/Header/pc.png');
+    background-size: cover;
+    overflow: hidden;
+    background-repeat: no-repeat;
+}
