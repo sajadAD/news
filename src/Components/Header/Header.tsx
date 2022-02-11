@@ -38,15 +38,19 @@ const Header = () => {
               />
               <Tab label="GIVE" sx={{ fontWeight: "600", color: "#ffff" }} />
               <Tab label="CONTACT" sx={{ fontWeight: "600", color: "#ffff" }} />
-              <IconButton>
-                <TwitterIcon />
-              </IconButton>
-              <IconButton>
-                <FacebookIcon />
-              </IconButton>
-              <IconButton>
-                <InstagramIcon />
-              </IconButton>
+
+              <Tab
+                sx={{ color: "#ffff" }}
+                icon={<TwitterIcon fontSize="small" />}
+              />
+              <Tab
+                sx={{ color: "#ffff" }}
+                icon={<FacebookIcon fontSize="small" />}
+              />
+              <Tab
+                sx={{ color: "#ffff" }}
+                icon={<InstagramIcon fontSize="small" />}
+              />
             </Tabs>
           </Grid>
         </Grid>
