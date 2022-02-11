@@ -1,4 +1,4 @@
-import { Grid, Tab, Tabs, Typography } from "@mui/material";
+import { Grid, IconButton, Tab, Tabs, Typography } from "@mui/material";
 import logo from "../../Assets/images/logor.png";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -38,12 +38,15 @@ const Header = () => {
               />
               <Tab label="GIVE" sx={{ fontWeight: "600", color: "#ffff" }} />
               <Tab label="CONTACT" sx={{ fontWeight: "600", color: "#ffff" }} />
-              <Tab label={<TwitterIcon fontSize="small" />} />
-              <Tab
-                label={<FacebookIcon fontSize="small" />}
-                sx={{ margin: "-55px" }}
-              />
-              <Tab label={<InstagramIcon fontSize="small" />} />
+              <IconButton>
+                <TwitterIcon />
+              </IconButton>
+              <IconButton>
+                <FacebookIcon />
+              </IconButton>
+              <IconButton>
+                <InstagramIcon />
+              </IconButton>
             </Tabs>
           </Grid>
         </Grid>
@@ -59,7 +62,12 @@ const Header = () => {
             </Typography>
           </Grid>
           <Grid item>
-            <Typography variant="subtitle1" component="h2" color="white" align="center">
+            <Typography
+              variant="subtitle1"
+              component="h2"
+              color="white"
+              align="center"
+            >
               aspernatur et reiciendis alias vel obcaecati expedita ex quibusdam
               <br />
               Debitis molestiae odit illum, odio pariatur doloribus ducimus
