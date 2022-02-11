@@ -4,24 +4,11 @@ import { Axios } from '../../Config/Axios';
 
 export interface NewsState {
     status:string,
-    author:string,
-    content:string,
-    description:string,
-    publishedAt:string,
-    title:string,
-    url:string,
-    urlImage:string,
+    lists:[]
 }
-
 const initialState: NewsState = {
     status:'',
-    author:'',
-    content:'',
-    description:'',
-    publishedAt:'',
-    title:'',
-    url:'',
-    urlImage:'',
+    lists:[]
 };
 export const fetchNews = createAsyncThunk(
     "products/fetchNews", async (_, thunkAPI) => {
@@ -45,16 +32,7 @@ export const newsSlice = createSlice({
       })
       .addCase(fetchNews.fulfilled, (state, action) => {
         state.status = 'fulfilled';
-        action.payload.articles.map((item:any)=>{
-            state.status = item.status;
-            state.author = item.author;
-            state.content = item.content;
-            state.description = item.description;
-            state.publishedAt = item.publishedAt;
-            state.title = item.title;
-            state.url = item.url;
-            state.urlImage = item.urlImage;
-        })
+            state.lists = action.payload.articles
       });
   },
 });
