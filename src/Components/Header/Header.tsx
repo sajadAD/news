@@ -40,14 +40,17 @@ const Header = () => {
               <Tab label="CONTACT" sx={{ fontWeight: "600", color: "#ffff" }} />
 
               <Tab
+                className="icon-twit"
                 sx={{ color: "#ffff" }}
                 icon={<TwitterIcon fontSize="small" />}
               />
               <Tab
+                className="icon-face"
                 sx={{ color: "#ffff" }}
                 icon={<FacebookIcon fontSize="small" />}
               />
               <Tab
+                className="icon-insta"
                 sx={{ color: "#ffff" }}
                 icon={<InstagramIcon fontSize="small" />}
               />

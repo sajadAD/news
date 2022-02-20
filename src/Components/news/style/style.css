@@ -1,9 +1,0 @@
-
-.news{
-    transition: transform .8s;
-}
-
-.news:hover{
-background-color: rgb(238, 237, 237);
-transform: scale(1.1);
-}
