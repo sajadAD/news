@@ -7,8 +7,16 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import Mapglobal from "./Map/Mapglobal";
 import './style/style.css'
+import { useDispatch } from "react-redux";
+import {login} from './LoginSlice'
+
 const Login = () => {
+  const dispatch = useDispatch()
   const [value, setValue] = React.useState("Login");
+  const [data, setData] = React.useState({
+    username:'',
+    password:''
+  });
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
@@ -49,20 +57,27 @@ const Login = () => {
                     focused
                     label="Username"
                     variant="outlined"
+                    value={data.username}
                     size="small"
                     sx={{ marginY: "5px", color: "red" }}
+                    onChange={(e:any)=>{ setData({...data,username:e.target.value})}}
+
                   />
                   <TextField
                     focused
                     label="password"
                     variant="outlined"
                     size="small"
+                    type={'password'}
+                    value={data.password}
                     sx={{ marginY: "5px" }}
+                    onChange={(e:any)=>{ setData({...data,password:e.target.value})}}
                   />
                   <Button
                     sx={{ color: "black", fontWeight: "700" }}
                     fullWidth
                     variant="contained"
+                    onClick={()=>{dispatch(login({username:data.username,password:data.password}))}}
                   >
                     Sign in
                   </Button>
