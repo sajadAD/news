@@ -1,80 +1,18 @@
-import { Grid, TextField } from "@mui/material";
-import React, { useRef, useLayoutEffect } from "react";
-
-// import Mapglobal from "./Map/Mapglobal"
-import * as am5 from "@amcharts/amcharts5";
-import * as am5map from "@amcharts/amcharts5/map";
-import am5geodata_worldLow from "@amcharts/amcharts5-geodata/worldLow";
-import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
+import { Button, Grid, TextField } from "@mui/material";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Tab from "@mui/material/Tab";
+import TabContext from "@mui/lab/TabContext";
+import TabList from "@mui/lab/TabList";
+import TabPanel from "@mui/lab/TabPanel";
 import Mapglobal from "./Map/Mapglobal";
-
+import './style/style.css'
 const Login = () => {
-  // useLayoutEffect(() => {
-  //     let root = am5.Root.new("chartdiv");
+  const [value, setValue] = React.useState("Login");
 
-  // // Set themes
-  // // https://www.amcharts.com/docs/v5/concepts/themes/
-  // root.setThemes([
-  //   am5themes_Animated.new(root)
-  // ]);
-
-  // // Create the map chart
-  // // https://www.amcharts.com/docs/v5/charts/map-chart/
-  // let chart = root.container.children.push(am5map.MapChart.new(root, {
-  //   panX: "rotateX",
-  //   panY: "rotateY",
-  //   projection: am5map.geoOrthographic(),
-  //   paddingBottom: 20,
-  //   paddingTop: 20,
-  //   paddingLeft: 20,
-  //   paddingRight: 20
-  // }));
-
-  // // Create main polygon series for countries
-  // // https://www.amcharts.com/docs/v5/charts/map-chart/map-polygon-series/
-  // let polygonSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {
-  //   geoJSON: am5geodata_worldLow
-  // }));
-
-  // polygonSeries.mapPolygons.template.setAll({
-  //   tooltipText: "{name}",
-  //   toggleKey: "active",
-  //   interactive: true
-  // });
-
-  // polygonSeries.mapPolygons.template.states.create("hover", {
-  //   fill: root.interfaceColors.get("primaryButtonHover")
-  // });
-
-  // // Create series for background fill
-  // // https://www.amcharts.com/docs/v5/charts/map-chart/map-polygon-series/#Background_polygon
-  // let backgroundSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {}));
-  // backgroundSeries.mapPolygons.template.setAll({
-  //   fill: root.interfaceColors.get("alternativeBackground"),
-  //   fillOpacity: 0.1,
-  //   strokeOpacity: 0
-  // });
-  // backgroundSeries.data.push({
-  //   geometry: am5map.getGeoRectangle(90, 180, -90, -180)
-  // });
-
-  // // Create graticule series
-  // // https://www.amcharts.com/docs/v5/charts/map-chart/graticule-series/
-  // let graticuleSeries = chart.series.push(am5map.GraticuleSeries.new(root, {}));
-  // graticuleSeries.mapLines.template.setAll({ strokeOpacity: 0.1, stroke: root.interfaceColors.get("alternativeBackground") })
-
-  // // Rotate animation
-  // chart.animate({
-  //   key: "rotationX",
-  //   from: 0,
-  //   to: 360,
-  //   duration: 30000,
-  //   loops: Infinity
-  // });
-
-  // // Make stuff animate on load
-  // chart.appear(1000, 100);
-  //   }, []);
+  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    setValue(newValue);
+  };
   return (
     <>
       <Grid
@@ -83,11 +21,94 @@ const Login = () => {
         alignItems={"center"}
         justifyContent={"space-between"}
         height={"100vh"}
+        sx={{ backgroundColor: "#011250e8" }}
       >
         <Mapglobal />
-        <Grid padding={5}>
-          <TextField label="username" />
-          <TextField sx={{ marginLeft: "10px" }} label="password" />
+        <Grid
+          container
+          padding={5}
+          justifyContent={"center"}
+          width={"50%"}
+          flexDirection={"column"}
+        >
+          <Box sx={{ width: "30%", typography: "body1" }}>
+            <TabContext value={value}>
+              <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+                <TabList
+                  textColor="primary"
+                  indicatorColor="primary"
+                  onChange={handleChange}
+                >
+                  <Tab sx={{backgroundColor:'#5f87ca',borderRadius:"10px 10px 0 0",marginX:"2px"}} label="Login" value="Login" />
+                  <Tab sx={{backgroundColor:'#5f87ca',borderRadius:"10px 10px 0 0",marginX:"2px"}} label="Register" value="Register" />
+                </TabList>
+              </Box>
+              <TabPanel value="Login">
+                <Grid container height='100px'>
+                  <TextField
+                    focused
+                    label="Username"
+                    variant="outlined"
+                    size="small"
+                    sx={{ marginY: "5px", color: "red" }}
+                  />
+                  <TextField
+                    focused
+                    label="password"
+                    variant="outlined"
+                    size="small"
+                    sx={{ marginY: "5px" }}
+                  />
+                  <Button
+                    sx={{ color: "black", fontWeight: "700" }}
+                    fullWidth
+                    variant="contained"
+                  >
+                    Sign in
+                  </Button>
+                </Grid>
+              </TabPanel>
+              <TabPanel value="Register">
+              <Grid container height='100px'>
+                  <TextField
+                    focused
+                    label="Username"
+                    variant="outlined"
+                    size="small"
+                    sx={{ marginY: "5px", color: "red" }}
+                  />
+                  <TextField
+                    focused
+                    label="Email"
+                    variant="outlined"
+                    size="small"
+                    sx={{ marginY: "5px" }}
+                  />
+                  <TextField
+                    focused
+                    label="password"
+                    variant="outlined"
+                    size="small"
+                    sx={{ marginY: "5px" }}
+                  />
+                  <TextField
+                    focused
+                    label="password Confirm"
+                    variant="outlined"
+                    size="small"
+                    sx={{ marginY: "5px" }}
+                  />
+                  <Button
+                    sx={{ color: "black", fontWeight: "700" }}
+                    fullWidth
+                    variant="contained"
+                  >
+                    Register
+                  </Button>
+                </Grid>
+              </TabPanel>
+            </TabContext>
+          </Box>
         </Grid>
       </Grid>
     </>
