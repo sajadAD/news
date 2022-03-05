@@ -14,6 +14,8 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { fetchNews, selectNews } from "./NewsSlice";
 import "./style/style.css";
+import ScrollToTop from "react-scroll-to-top";
+
 
 const News = () => {
   const dispatch = useAppDispatch();
@@ -32,6 +34,7 @@ const News = () => {
         container
         justifyContent={"space-between"}
       >
+         <ScrollToTop smooth />
         <Grid item>
           <Typography variant="h5">Upcoming event</Typography>
         </Grid>
