@@ -4,11 +4,13 @@ import { Axios } from '../../Config/Axios';
 
 export interface NewsState {
     status: string,
-    lists: []
+    lists: [],
+    viewState: boolean
 }
 const initialState: NewsState = {
     status: '',
-    lists: []
+    lists: [],
+    viewState: true
 };
 export const fetchNews = createAsyncThunk(
     "products/fetchNews", async (_, thunkAPI) => {
@@ -23,7 +25,13 @@ export const fetchNews = createAsyncThunk(
 export const newsSlice = createSlice({
     name: 'news',
     initialState,
-    reducers: {},
+    reducers: {
+        changeViewState: (state, action: PayloadAction<boolean>) => {
+            console.log(action.payload)
+            state.viewState = action.payload;
+            console.log("state.viewState",state.viewState)
+        }
+    },
     extraReducers: (builder) => {
         builder
             /***********fetch News*************/
@@ -37,7 +45,7 @@ export const newsSlice = createSlice({
     },
 });
 
-export const { } = newsSlice.actions;
+export const { changeViewState } = newsSlice.actions;
 export const selectNews = (state: RootState) => state.news;
 
 

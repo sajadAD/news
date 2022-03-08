@@ -4,9 +4,17 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import { Box } from "@mui/system";
+import FormatListBulletedOutlinedIcon from "@mui/icons-material/FormatListBulletedOutlined";
+import WindowOutlinedIcon from "@mui/icons-material/WindowOutlined";
+import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
+import ScrollToTop from "react-scroll-to-top";
 import "./style/Header.css";
+import { useDispatch } from "react-redux";
+import {changeViewState} from '../News/NewsSlice'
+
 
 const Header = () => {
+  const dispatch = useDispatch();
   return (
     <>
       <Box component="div" className="navbar_header" height="400px">
@@ -84,6 +92,29 @@ const Header = () => {
           </Grid>
         </Grid>
       </Box>
+      <Grid
+        spacing={8}
+        padding={4}
+        className="header_news"
+        container
+        justifyContent={"space-between"}
+      >
+        <ScrollToTop
+          smooth
+          component={<ArrowCircleUpIcon color="secondary" />}
+        />
+        <Grid item>
+          <Typography variant="h5">Upcoming event</Typography>
+        </Grid>
+        <Grid item>
+          <IconButton onClick={()=>{dispatch(changeViewState(false))}}>
+            <FormatListBulletedOutlinedIcon />
+          </IconButton>
+          <IconButton onClick={()=>{dispatch(changeViewState(true))}}>
+            <WindowOutlinedIcon />
+          </IconButton>
+        </Grid>
+      </Grid>
     </>
   );
 };
