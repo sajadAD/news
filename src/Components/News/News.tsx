@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { fetchNews, selectNews } from "./NewsSlice";
 import "./style/style.css";
+import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import ScrollToTop from "react-scroll-to-top";
 
 
@@ -34,7 +35,7 @@ const News = () => {
         container
         justifyContent={"space-between"}
       >
-         <ScrollToTop smooth />
+         <ScrollToTop smooth component={<ArrowCircleUpIcon color="secondary"/>} />
         <Grid item>
           <Typography variant="h5">Upcoming event</Typography>
         </Grid>

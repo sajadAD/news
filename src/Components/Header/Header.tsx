@@ -1,5 +1,5 @@
 import { Grid, IconButton, Tab, Tabs, Typography } from "@mui/material";
-import logo from "../../Assets/images/logor.png";
+import logo from "../../Assets/images/newsLogo.png";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";

@@ -106,7 +106,7 @@ const Footer = () => {
               label="your email"
               size={"small"}
             />
-            <Button variant="contained">SUBSCRIBE</Button>
+            <Button variant="contained" color="success">SUBSCRIBE</Button>
           </Grid>
           <Grid sx={{ padding: "15px 0" }}>
             <Typography variant="body1" color="initial">
