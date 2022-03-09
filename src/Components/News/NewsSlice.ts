@@ -27,9 +27,7 @@ export const newsSlice = createSlice({
     initialState,
     reducers: {
         changeViewState: (state, action: PayloadAction<boolean>) => {
-            console.log(action.payload)
             state.viewState = action.payload;
-            console.log("state.viewState",state.viewState)
         }
     },
     extraReducers: (builder) => {
