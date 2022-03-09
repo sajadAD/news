@@ -41,3 +41,11 @@ $bluebell: #979fd0;
   transform: scale(1.01);
   overflow: hidden;
 }
+.newsCard {
+  transition: transform 0.8s;
+  overflow: hidden;
+}
+.newsCard:hover {
+  transform: scale(1.05);
+  overflow: hidden;
+}

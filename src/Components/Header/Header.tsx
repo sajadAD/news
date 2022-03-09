@@ -10,11 +10,14 @@ import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import ScrollToTop from "react-scroll-to-top";
 import "./style/Header.css";
 import { useDispatch } from "react-redux";
-import {changeViewState} from '../News/NewsSlice'
+import {changeViewState,selectNews} from '../News/NewsSlice'
+import { useAppSelector } from "../../app/hooks";
 
 
 const Header = () => {
   const dispatch = useDispatch();
+  const newsSelector = useAppSelector(selectNews);
+
   return (
     <>
       <Box component="div" className="navbar_header" height="400px">
@@ -107,10 +110,10 @@ const Header = () => {
           <Typography variant="h5">Upcoming event</Typography>
         </Grid>
         <Grid item>
-          <IconButton onClick={()=>{dispatch(changeViewState(false))}}>
+          <IconButton color={newsSelector.viewState ? "secondary" : "inherit"}  onClick={()=>{dispatch(changeViewState(true))}}>
             <FormatListBulletedOutlinedIcon />
           </IconButton>
-          <IconButton onClick={()=>{dispatch(changeViewState(true))}}>
+          <IconButton color={newsSelector.viewState ? "inherit" : "secondary"} onClick={()=>{dispatch(changeViewState(false))}}>
             <WindowOutlinedIcon />
           </IconButton>
         </Grid>

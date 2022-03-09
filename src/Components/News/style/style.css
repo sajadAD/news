@@ -59,4 +59,18 @@
           transform: scale(1.01);
   overflow: hidden;
 }
+
+.newsCard {
+  -webkit-transition: -webkit-transform 0.8s;
+  transition: -webkit-transform 0.8s;
+  transition: transform 0.8s;
+  transition: transform 0.8s, -webkit-transform 0.8s;
+  overflow: hidden;
+}
+
+.newsCard:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  overflow: hidden;
+}
 /*# sourceMappingURL=style.css.map */
