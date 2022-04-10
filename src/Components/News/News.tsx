@@ -154,8 +154,8 @@ const News = () => {
                 );
               } else {
                 return (
-                  <Grid className="newsCard" item key={index} margin={"10px 5px"}>
-                    <Card sx={{ maxWidth: 340,minHeight: 400 }} key={index}>
+                  <Grid className="newsCard" sx={{width:'24%',height:'100%'}} item key={index} margin={"10px 5px"}>
+                    <Card key={index}>
                       <CardHeader
                         avatar={
                           <Avatar
