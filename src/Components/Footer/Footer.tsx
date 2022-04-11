@@ -15,7 +15,12 @@ const Footer = () => {
       >
         <Grid>
           <Grid>
-            <Typography variant="h6" fontWeight={"600"} color="initial">
+            <Typography
+              className="footer_topic"
+              variant="h6"
+              fontWeight={"600"}
+              color="initial"
+            >
               INFO
             </Typography>
           </Grid>
@@ -47,7 +52,12 @@ const Footer = () => {
         </Grid>
         <Grid>
           <Grid>
-            <Typography variant="h6" fontWeight={"600"} color="initial">
+            <Typography
+              className="footer_topic"
+              variant="h6"
+              fontWeight={"600"}
+              color="initial"
+            >
               RESOURCES
             </Typography>
           </Grid>
@@ -69,7 +79,12 @@ const Footer = () => {
         </Grid>
         <Grid>
           <Grid>
-            <Typography variant="h6" fontWeight={"600"} color="initial">
+            <Typography
+              className="footer_topic"
+              variant="h6"
+              fontWeight={"600"}
+              color="initial"
+            >
               COMPANY
             </Typography>
           </Grid>
@@ -95,32 +110,36 @@ const Footer = () => {
           </Grid>
         </Grid>
         <Grid>
-          <Grid sx={{ padding: "5px 0" }}>
-            <Typography variant="body1" color="initial">
-              subscribe to our email newsletter
-            </Typography>
-          </Grid>
-          <Grid>
-            <TextField
-              sx={{ margin: "0 5px" }}
-              label="your email"
-              size={"small"}
-            />
-            <Button variant="contained" color="success">SUBSCRIBE</Button>
-          </Grid>
-          <Grid sx={{ padding: "15px 0" }}>
-            <Typography variant="body1" color="initial">
-              Follow us
-            </Typography>
-            <IconButton color="inherit" className="icon-insta">
-              <InstagramIcon />
-            </IconButton>
-            <IconButton color="inherit" className="icon-twit">
-              <TwitterIcon />
-            </IconButton>
-            <IconButton color="inherit" className="icon-face">
-              <FacebookIcon />
-            </IconButton>
+          <Grid container justifyContent={{ xs: "center"}}>
+            <Grid sx={{ padding: "5px 0" }}>
+              <Typography variant="body1" color="initial">
+                subscribe to our email newsletter
+              </Typography>
+            </Grid>
+            <Grid container justifyContent={{ xs: "center"}}>
+              <TextField
+                sx={{ margin: {xs:'5px 0',sm:"0 5px"} }}
+                label="your email"
+                size={"small"}
+              />
+              <Button variant="contained" size={'small'} color="success">
+                SUBSCRIBE
+              </Button>
+            </Grid>
+            <Grid sx={{ padding: "15px 0" }}>
+              <Typography variant="body1" color="initial">
+                Follow us
+              </Typography>
+              <IconButton color="inherit" className="icon-insta">
+                <InstagramIcon />
+              </IconButton>
+              <IconButton color="inherit" className="icon-twit">
+                <TwitterIcon />
+              </IconButton>
+              <IconButton color="inherit" className="icon-face">
+                <FacebookIcon />
+              </IconButton>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>

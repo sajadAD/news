@@ -2,11 +2,20 @@
   color: black;
 }
 .icon-twit:hover {
-  color: #1da1f2;
+  color: #f56040;
 }
 .icon-face:hover {
-  color: #4267b2;
+  color: #f56040;
 }
 .icon-insta:hover {
   color: #f56040;
+}
+@media screen and (max-width: 480px) {
+  .footer_topic{
+    font-size: 15px !important;
+  }
+  .links{
+    font-size: 14px !important;
+  }
+
 }
