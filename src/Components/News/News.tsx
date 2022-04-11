@@ -74,10 +74,11 @@ const News = () => {
                   <>
                     <Grid
                       key={index}
+                      flexDirection={{xs:'column',sm:'row'}}
                       className="news"
                       container
-                      justifyContent={"space-around"}
-                      padding={"40px 0"}
+                      justifyContent={{xs:'center',sm:"space-around"}}
+                      padding={"20px 0"}
                     >
                       <Grid md={1} item>
                         <Grid
@@ -92,7 +93,7 @@ const News = () => {
                           </IconButton>
                         </Grid>
                       </Grid>
-                      <Grid md={4} item alignItems={"center"}>
+                      <Grid md={4} item alignItems={"center"} p={{xs:2,sm:0}}>
                         <Grid container>
                           <img
                             src={item.urlToImage}
