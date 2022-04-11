@@ -27,19 +27,19 @@ const Login = () => {
         container
         padding={4}
         alignItems={"center"}
-        justifyContent={"space-between"}
+        justifyContent={"center"}
         height={"100vh"}
+        // width={"100%"}
         sx={{ backgroundColor: "#011250e8" }}
       >
-        <Mapglobal />
         <Grid
           container
           padding={5}
           justifyContent={"center"}
-          width={"50%"}
+          width={"100%"}
           flexDirection={"column"}
         >
-          <Box sx={{ width: "30%", typography: "body1" }}>
+          <Box sx={{ typography: "body1"}}>
             <TabContext value={value}>
               <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
                 <TabList
@@ -52,7 +52,7 @@ const Login = () => {
                 </TabList>
               </Box>
               <TabPanel value="Login">
-                <Grid container height='100px'>
+                <Grid container height='100px' width={100} flexDirection={'column'}>
                   <TextField
                     focused
                     label="Username"

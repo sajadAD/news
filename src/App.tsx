@@ -6,17 +6,11 @@ import Login from "./Components/Login/Login";
 
 function App() {
   return (
-    <>
-      {localStorage.getItem("token") ? (
         <>
           <Header />
           <News />
           <Footer />
         </>
-      ) : (
-        <Login />
-      )}
-    </>
   );
 }
 
