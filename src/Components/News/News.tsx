@@ -45,7 +45,7 @@ const News = () => {
     }),
   }));
 
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = React.useState(true);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -154,7 +154,7 @@ const News = () => {
                 );
               } else {
                 return (
-                  <Grid className="newsCard" sx={{width:'24%',height:'100%'}} item key={index} margin={"10px 5px"}>
+                  <Grid className="newsCard" sx={{width:{xs:'100%',md:'24%'},height:'100%'}} item key={index} margin={"10px 5px"}>
                     <Card key={index}>
                       <CardHeader
                         avatar={

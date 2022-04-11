@@ -4,3 +4,12 @@
     overflow: hidden;
     background-repeat: no-repeat;
 }
+@media screen and (max-width: 480px) {
+    #event{
+        font-size: 50px;
+    }
+    #text_land{
+        font-size: 15px;
+    }
+
+  }
