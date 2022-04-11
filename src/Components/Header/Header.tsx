@@ -1,4 +1,4 @@
-import { Grid, IconButton, Tab, Typography } from "@mui/material";
+import { Grid, IconButton, Typography } from "@mui/material";
 import logo from "../../Assets/images/newsLogo.png";
 import Tabs from "./Tabs";
 import Icons from "./Icons";
