@@ -1,7 +1,6 @@
-import React, { useRef, useLayoutEffect } from "react";
+import { useLayoutEffect } from "react";
 import * as am5 from "@amcharts/amcharts5";
 import * as am5map from "@amcharts/amcharts5/map";
-import am5geodata_worldLow from "@amcharts/amcharts5-geodata/worldLow";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 import { Grid } from "@mui/material";
 
@@ -22,13 +21,6 @@ function Mapglobal() {
         paddingRight: 20,
       })
     );
-
-    let polygonSeries = chart.series.push(
-      am5map.MapPolygonSeries.new(root, {
-        geoJSON: am5geodata_worldLow,
-      })
-    );
-
     let graticuleSeries = chart.series.push(
       am5map.GraticuleSeries.new(root, {})
     );
