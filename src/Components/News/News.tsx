@@ -32,6 +32,7 @@ const News = () => {
     dispatch(fetchNews());
   }, [dispatch]);
   useEffect((): any => {
+    console.log(status)
     if (status === "fulfilled") {
       return toast.success("Welcome to our Site :)", {
         position: "top-right",
@@ -44,6 +45,16 @@ const News = () => {
       });
     } else if (status === "error") {
       return toast.error("There is a problem, Sorry :(", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else if (status === "loading") {
+      return toast.info("Please Wait ...", {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
