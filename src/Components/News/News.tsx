@@ -21,14 +21,39 @@ import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const News = () => {
   const dispatch = useAppDispatch();
   const newsSelector = useAppSelector(selectNews);
-
+  const { status } = newsSelector;
   useEffect(() => {
     dispatch(fetchNews());
   }, [dispatch]);
+  useEffect((): any => {
+    if (status === "fulfilled") {
+      return toast.success("Welcome to our Site :)", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else if (status === "error") {
+      return toast.error("There is a problem, Sorry :(", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  }, [status]);
 
   interface ExpandMoreProps extends IconButtonProps {
     expand: boolean;
@@ -52,6 +77,17 @@ const News = () => {
   };
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <Divider />
       {newsSelector.status === "loading" ? (
         <Grid
@@ -74,10 +110,10 @@ const News = () => {
                   <>
                     <Grid
                       key={index}
-                      flexDirection={{xs:'column',sm:'row'}}
+                      flexDirection={{ xs: "column", sm: "row" }}
                       className="news"
                       container
-                      justifyContent={{xs:'center',sm:"space-around"}}
+                      justifyContent={{ xs: "center", sm: "space-around" }}
                       padding={"20px 0"}
                     >
                       <Grid md={1} item>
@@ -93,7 +129,12 @@ const News = () => {
                           </IconButton>
                         </Grid>
                       </Grid>
-                      <Grid md={4} item alignItems={"center"} p={{xs:2,sm:0}}>
+                      <Grid
+                        md={4}
+                        item
+                        alignItems={"center"}
+                        p={{ xs: 2, sm: 0 }}
+                      >
                         <Grid container>
                           <img
                             src={item.urlToImage}
@@ -155,7 +196,13 @@ const News = () => {
                 );
               } else {
                 return (
-                  <Grid className="newsCard" sx={{width:{xs:'100%',md:'24%'},height:'100%'}} item key={index} margin={"10px 5px"}>
+                  <Grid
+                    className="newsCard"
+                    sx={{ width: { xs: "100%", md: "24%" }, height: "100%" }}
+                    item
+                    key={index}
+                    margin={"10px 5px"}
+                  >
                     <Card key={index}>
                       <CardHeader
                         avatar={
@@ -182,7 +229,7 @@ const News = () => {
                       />
                       <CardContent>
                         <Typography variant="body2" color="text.secondary">
-                        {item.title}
+                          {item.title}
                         </Typography>
                       </CardContent>
                       <CardActions disableSpacing>
@@ -203,9 +250,7 @@ const News = () => {
                       </CardActions>
                       <Collapse in={expanded} timeout="auto" unmountOnExit>
                         <CardContent>
-                          <Typography paragraph>
-                          {item.content}
-                          </Typography>
+                          <Typography paragraph>{item.content}</Typography>
                         </CardContent>
                       </Collapse>
                     </Card>
