@@ -15,7 +15,7 @@ const initialState: NewsState = {
 export const fetchNews = createAsyncThunk(
     "products/fetchNews", async (_, thunkAPI) => {
         try {
-            const response = await Axios.get('/v2/everything?q=bitcoin&apiKey=948b516b1e854518a8550bf0d55812a9');//where you want to fetch data
+            const response = await Axios.get('/v2/everything?q=bitcoin&apiKey=948b516b1e854518a8550bf0d55812a9');
             return response.data;
         } catch (error) {
             return thunkAPI.rejectWithValue({ error: 'error' });
@@ -39,6 +39,9 @@ export const newsSlice = createSlice({
             .addCase(fetchNews.fulfilled, (state, action) => {
                 state.status = 'fulfilled';
                 state.lists = action.payload.articles
+            })
+            .addCase(fetchNews.rejected, (state) => {
+                state.status = 'error';
             });
     },
 });
